@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "foodoffer": {
+    "foodOffer": {
       "projectType": "application",
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "foodOffer",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/foodoffer",
+            "outputPath": "dist/foodOffer",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -23,12 +23,18 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/app/_assets"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/_assets/styles/styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/_assets/styles",
+                "node_modules"
+              ]
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -64,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "foodoffer:build:production"
+              "buildTarget": "foodOffer:build:production"
             },
             "development": {
-              "buildTarget": "foodoffer:build:development"
+              "buildTarget": "foodOffer:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,16 +92,19 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/app/_assets"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/_assets/styles/styles.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8aaa43c9-adca-4c9e-a8e9-219b31974106"
   }
 }
