@@ -1,5 +1,6 @@
 @import "./fonts.css";
 @import "tailwindcss";
+@import "primeicons/primeicons.css";
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
@@ -31,7 +32,10 @@ input:-webkit-autofill:active {
   }
 
   body {
-    @apply text-base md:text-lg font-primary font-semibold text-white bg-primary-darker;
+    @apply text-base md:text-lg font-primary font-normal text-white bg-primary-darker;
+  }
+  button{
+    cursor: pointer;
   }
 }
 
@@ -42,11 +46,12 @@ input:-webkit-autofill:active {
   --color-primary-normal: oklch(49.46% 0.0835 178.39);
   --color-primary-dark: oklch(32.51% 0.0607 176.18);
   --color-primary-darker: oklch(18.34% 0.033156 180.5431);
+  --color-secondary-50: oklch(98.73% 0.0262 102.21);
   --color-secondary-lighter: oklch(83.74% 0.05 99.74);
   --color-secondary-light: oklch(94.51% 0.1243 101.54);
   --color-secondary-normal: oklch(86.06% 0.1731 91.94);
   --color-secondary-dark: oklch(79.52% 0.1617 86.05);
-  --color-secondary-darker: oklch(55.38% 0.1207 66.44);
+  --color-secondary-border: oklch(94.62% 0.1076 98.99);
   --scrollbar-width: 12px;
   --scrollbar-track: oklch(86.66% 0.1203 180.65);
   --scrollbar-thumb: oklch(49.46% 0.0835 178.39);
@@ -66,6 +71,9 @@ input:-webkit-autofill:active {
   --font-body-3: 12px;
 }
 @layer components {
+  .bg-border-gradient{
+    background-color: #FFFFFF3D;
+  }
 }
 @layer utilities {
   .font-primary {
@@ -96,7 +104,7 @@ input:-webkit-autofill:active {
     font-size: var(--font-body-3);
   }
   .container {
-    @apply p-4 md:p-2.5 flex justify-center items-center;
+    @apply p-4 md:p-2.5 mx-auto;
   }
   .flex-center {
     @apply flex justify-center items-center;
