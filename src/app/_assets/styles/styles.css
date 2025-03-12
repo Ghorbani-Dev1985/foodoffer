@@ -1,6 +1,7 @@
 @import "./fonts.css";
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
+@import "tailwindcss-primeui";
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
@@ -23,6 +24,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+
 @layer base {
   * {
     @apply p-0 m-0 box-border;
@@ -37,6 +39,10 @@ input:-webkit-autofill:active {
   button{
     cursor: pointer;
   }
+  a:hover{
+    @apply hover:text-secondary-normal transition-colors
+  }
+
 }
 
 @theme {

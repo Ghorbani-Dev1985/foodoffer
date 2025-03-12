@@ -1,8 +1,8 @@
-@if(showSearchBox.isShowSearchBox()) {
+@if(isShowSearchBox()) {
   <nav class="hidden lg:flex md:justify-center md:items-center md:flex-1">
     <ul class="w-full flex-center gap-x-4.5 xl:gap-x-8">
         <li><a routerLink="/">صفحه‌ اصلی</a></li>
-        <li class="flex-center gap-x-2 group"><a routerLink="/restaurant-menu">منو</a><i class="pi pi-chevron-down"></i>
+        <li class="flex-center gap-x-2 group"><a routerLink="/restaurant-menu" class="group-hover:text-secondary-normal">منو</a><i class="pi pi-chevron-down gruop-hover:text-secondary-normal group-hover:rotate-180 transition-all ease-in-out duration-500"></i>
         <div class="invisible opacity-0 w-full container grid grid-cols-8 gap-x-1.5 !p-6 bg-primary-dark absolute shadow-[3px_3px_4px_0px_#FFFFFF1A] rounded-lg left-0 right-0 top-24 group-hover:visible group-hover:opacity-100 transition-all ease-in-out duration-500">
           @for(restaurantMenuItem of restaurantMenuItems(); track restaurantMenuItem.id ) {
              <div class="flex flex-col gax-y-5 text-base">
@@ -10,12 +10,10 @@
               <ul class="space-y-2">
                 @for(restaurantSubMenuItem of restaurantMenuItem.subMenuItems; track restaurantSubMenuItem.id ) {
                   <li><a [routerLink]="restaurantSubMenuItem.href" class="flex items-center gap-x-2">
-                    <p class="size-2 rounded-full bg-gradient-to-l from-secondary-normal to-white"></p>{{restaurantSubMenuItem.title}}</a></li>
+                    <p class="size-2 rounded-full bg-gradient-to-l from-secondary-normal to-white"></p><span class="hover:pr-1.5 transition-all ease-in-out duration-500">{{restaurantSubMenuItem.title}}</span></a></li>
                 }
               </ul>
              </div>
-
-
           }
         </div>
         </li>
