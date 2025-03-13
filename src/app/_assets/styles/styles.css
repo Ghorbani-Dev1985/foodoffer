@@ -1,78 +1,124 @@
 @import "./fonts.css";
 @import "tailwindcss";
+@import "primeicons/primeicons.css";
+@import "tailwindcss-primeui";
 
-  /* Custom scrollbar styles */
-  ::-webkit-scrollbar {
-    width: var(--scrollbar-width);
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
-    border-radius: 50px;
-    border: 1px solid var(--scrollbar-track);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover);
-  }
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 50px;
+  border: 1px solid var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-@layer base{
-  *{
-    @apply p-0 m-0 box-border
+
+@layer base {
+  * {
+    @apply p-0 m-0 box-border;
   }
-  html{
-    @apply scroll-smooth min-h-screen
+  html {
+    @apply scroll-smooth min-h-screen;
   }
 
-  body{
-    @apply text-base font-semibold font-primary text-primary-700
+  body {
+    @apply text-base md:text-lg font-primary font-normal text-white bg-primary-darker;
   }
+  button{
+    cursor: pointer;
+  }
+  a:hover{
+    @apply hover:text-secondary-normal transition-colors
+  }
+
 }
 
 @theme {
-  --font-primary : IRANSans , sans-serif;
-  --color-primary-50 : oklch(94.28% 0.017 267.79);
-  --color-primary-100 : oklch(88.74% 0.0351 265.98);
-  --color-primary-200 : oklch(77.34% 0.0732 265.52);
-  --color-primary-300 : oklch(65.84% 0.1146 264.25);
-  --color-primary-400 : oklch(54.68% 0.1571 263.27);
-  --color-primary-500 : oklch(45.47% 0.1394 263.56);
-  --color-primary-600 : oklch(38.72% 0.1152 263.78);
-  --color-primary-700 : oklch(32% 0.0898 263.61);
-  --color-primary-800 : oklch(24.99% 0.0641 263.54);
-  --color-primary-900 : oklch(17.56% 0.0351 265.05);
-  --color-primary-950 : oklch(13.34% 0.0203 258.02);
-  --color-secondary-50 : oklch(95.11% 0.0152 1);
-  --color-secondary-100 : oklch(90.32% 0.0323 17.77);
-  --color-secondary-200 : oklch(81.68% 0.0643 18.56);
-  --color-secondary-300 : oklch(72.45% 0.1004 19.8);
-  --color-secondary-400 : oklch(64.54% 0.1366 21.59);
-  --color-secondary-500 : oklch(56.89% 0.1737 24.54);
-  --color-secondary-600 : oklch(48.99% 0.1565 25.07);
-  --color-secondary-700 : oklch(39.57% 0.122 24.64);
-  --color-secondary-800 : oklch(30.52% 0.0882 23.95);
-  --color-secondary-900 : oklch(19.85% 0.049 22.6);
-  --color-secondary-950 : oklch(14.61% 0.0268 20.86);
+  --font-primary: IRANSans, sans-serif;
+  --color-primary-lighter: oklch(86.66% 0.1203 180.65);
+  --color-primary-light: oklch(71.32% 0.1058 180.08);
+  --color-primary-normal: oklch(49.46% 0.0835 178.39);
+  --color-primary-dark: oklch(32.51% 0.0607 176.18);
+  --color-primary-darker: oklch(18.34% 0.033156 180.5431);
+  --color-secondary-50: oklch(98.73% 0.0262 102.21);
+  --color-secondary-lighter: oklch(83.74% 0.05 99.74);
+  --color-secondary-light: oklch(94.51% 0.1243 101.54);
+  --color-secondary-normal: oklch(86.06% 0.1731 91.94);
+  --color-secondary-dark: oklch(79.52% 0.1617 86.05);
+  --color-secondary-border: oklch(94.62% 0.1076 98.99);
   --scrollbar-width: 12px;
-  --scrollbar-track:   oklch(81.68% 0.0643 18.56);
-  --scrollbar-thumb: oklch(54.68% 0.1571 263.27);
-  --scrollbar-thumb-hover:  oklch(38.72% 0.1152 263.78);
+  --scrollbar-track: oklch(86.66% 0.1203 180.65);
+  --scrollbar-thumb: oklch(49.46% 0.0835 178.39);
+  --scrollbar-thumb-hover: oklch(18.34% 0.033156 180.5431);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --font-display-1: 48px;
+  --font-display-2: 32px;
+  --font-heading-1: 22px;
+  --font-heading-2: 18px;
+  --font-heading-3: 16px;
+  --font-body-1: 16px;
+  --font-body-2: 14px;
+  --font-body-3: 12px;
 }
-
+@layer components {
+  .bg-border-gradient{
+    background-color: #FFFFFF3D;
+  }
+}
 @layer utilities {
-  .flex-center{
-    @apply flex justify-center items-center
+  .font-primary {
+    font-family: var(--font-primary);
   }
-  .flex-between{
-    @apply flex justify-between items-center
+  .text-display-1 {
+    font-size: var(--font-display-1);
   }
-  .dir-left{
+  .text-display-2 {
+    font-size: var(--font-display-2);
+  }
+  .text-heading-1 {
+    font-size: var(--font-heading-1);
+  }
+  .text-heading-2 {
+    font-size: var(--font-heading-2);
+  }
+  .text-heading-3 {
+    font-size: var(--font-heading-3);
+  }
+  .text-body-1 {
+    font-size: var(--font-body-1);
+  }
+  .text-body-2 {
+    font-size: var(--font-body-2);
+  }
+  .text-body-3 {
+    font-size: var(--font-body-3);
+  }
+  .container {
+    @apply p-4 md:p-2.5 mx-auto;
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  .dir-left {
     direction: ltr;
   }
 }

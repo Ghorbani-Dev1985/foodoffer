@@ -1,0 +1,24 @@
+<header class="flex-center relative h-16 md:h-[132px] rounded-b-2xl shadow-[inset_0px_167px_4px_0px_#FFFFFF29]">
+  <section class="container flex-between xl:gap-x-[120px]">
+    <div (click)="isShowMobileNav = true" class="flex justify-center items-center gap-x-2 text-secondary-50 fill-secondary-50 md:hidden">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 18H19M5 6H19M5 12H19" stroke="#FEFCE8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p-drawer #mobileNavRef [(visible)]="isShowMobileNav" position="right" [transitionOptions]="'400ms ease-in-out'" styleClass="bg-primary-dark! border-primary-dark! py-6 px-4">
+        <ng-template #headless>
+          <div class="w-full flex-between mb-6">
+           <span class="font-heading-2 font-bold">فود آفر</span>
+           <p (click)="onCloseMobileNav($event)">
+            <img src="/images/icon/closeCircle.webp" width="32" height="32" alt="close"/>
+           </p>
+          </div>
+          <foodOffer-mobile-navigation />
+          </ng-template>
+          </p-drawer>
+      <!-- Logo -->
+     <div class="flex-center flex-1 lg:flex-none"><img src="/images/logo/logo.webp" width="84" height="84" class="size-16 md:size-[84px]"/></div>
+     <foodOffer-desktop-navigation [isShowSearchBox]="isShowSearchBox()"/>
+     <foodOffer-header-user-actions (searchTriggered)="onSearchTriggered()"/>
+     </section>
+</header>

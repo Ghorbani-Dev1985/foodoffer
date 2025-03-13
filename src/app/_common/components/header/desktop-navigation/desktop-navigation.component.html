@@ -1,0 +1,35 @@
+@if(isShowSearchBox()) {
+  <nav class="hidden lg:flex md:justify-center md:items-center md:flex-1">
+    <ul class="w-full flex-center gap-x-4.5 xl:gap-x-8">
+        <li><a routerLink="/">صفحه‌ اصلی</a></li>
+        <li class="flex-center gap-x-2 group"><a routerLink="/restaurant-menu" class="group-hover:text-secondary-normal">منو</a><i class="pi pi-chevron-down gruop-hover:text-secondary-normal group-hover:rotate-180 transition-all ease-in-out duration-500"></i>
+        <div class="invisible opacity-0 w-full container grid grid-cols-8 gap-x-1.5 !p-6 bg-primary-dark absolute shadow-[3px_3px_4px_0px_#FFFFFF1A] rounded-lg left-0 right-0 top-24 group-hover:visible group-hover:opacity-100 transition-all ease-in-out duration-500">
+          @for(restaurantMenuItem of restaurantMenuItems(); track restaurantMenuItem.id ) {
+             <div class="flex flex-col gax-y-5 text-base">
+              <a [routerLink]="restaurantMenuItem.href" class="block font-heading-2 font-bold text-secondary-normal text-lg mb-5">{{restaurantMenuItem.title}}</a>
+              <ul class="space-y-2">
+                @for(restaurantSubMenuItem of restaurantMenuItem.subMenuItems; track restaurantSubMenuItem.id ) {
+                  <li><a [routerLink]="restaurantSubMenuItem.href" class="flex items-center gap-x-2">
+                    <p class="size-2 rounded-full bg-gradient-to-l from-secondary-normal to-white"></p><span class="hover:pr-1.5 transition-all ease-in-out duration-500">{{restaurantSubMenuItem.title}}</span></a></li>
+                }
+              </ul>
+             </div>
+          }
+        </div>
+        </li>
+        <li><a routerLink="/daily-offers">پیشنهاد‌های روز</a></li>
+        <li><a routerLink="/register-restaurant">ثبت رستوران</a></li>
+        <li><a routerLink="/about-us">درباره ما</a></li>
+        <li><a routerLink="/contact-us">تماس با ما</a></li>
+      </ul>
+    </nav>
+  }@else {
+    <form class="w-[600px]">
+        <div class="relative">
+          <input type="search" id="search" class="block w-full p-4 ps-8 text-sm text-secondary-normal border border-secondary-50 rounded-lg focus:border-secondary-normal placeholder:text-secondary-50" placeholder="جستجو..." required />
+          <div class="absolute inset-y-0 end-0 flex items-center ps-3 pointer-events-none">
+              <i class="pi pi-search size-7"></i>
+          </div>
+      </div>
+  </form>
+  }
