@@ -1,4 +1,4 @@
-import { Component, viewChild, ViewEncapsulation} from '@angular/core';
+import { Component, viewChild} from '@angular/core';
 import { signal } from '@angular/core';
 
 import { DrawerModule } from 'primeng/drawer';
@@ -6,13 +6,13 @@ import { Drawer } from 'primeng/drawer';
 import { HeaderUserActionsComponent } from "./header-user-actions/header-user-actions.component";
 import { DesktopNavigationComponent } from './desktop-navigation/desktop-navigation.component';
 import { MobileNavigationComponent } from "./mobile-navigation/mobile-navigation.component";
+import { IconsDirective } from '@directives/icons/icons.directive';
 
 @Component({
   selector: 'foodOffer-header',
-  imports: [DesktopNavigationComponent, HeaderUserActionsComponent, DrawerModule, MobileNavigationComponent],
+  imports: [DesktopNavigationComponent, HeaderUserActionsComponent, DrawerModule, MobileNavigationComponent , IconsDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
   isShowSearchBox = signal<boolean>(true);

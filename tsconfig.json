@@ -27,6 +27,7 @@
       "@components/*": ["app/_common/components/*"],
       "@constants/*": ["app/_common/constants/*"],
       "@environments/*": ["app/_common/environments/*"],
+      "@directives/*": ["app/_common/directives/*"]
     }
   },
   "angularCompilerOptions": {

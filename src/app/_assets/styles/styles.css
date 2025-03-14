@@ -24,6 +24,10 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+/* Reset PrimeNg styles */
+:root .p-component {
+  all: unset;
+}
 
 @layer base {
   * {
@@ -42,7 +46,6 @@ input:-webkit-autofill:active {
   a:hover{
     @apply hover:text-secondary-normal transition-colors
   }
-
 }
 
 @theme {
@@ -79,6 +82,14 @@ input:-webkit-autofill:active {
 @layer components {
   .bg-border-gradient{
     background-color: #FFFFFF3D;
+  }
+  .p-panelmenu-panel{
+    background: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-radius: 0px !important;
+    border-color: var(--color-secondary-lighter) !important;
   }
 }
 @layer utilities {
