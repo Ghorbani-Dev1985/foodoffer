@@ -10,9 +10,8 @@ import { IconsDirective } from '@directives/icons/icons.directive';
 
 @Component({
   selector: 'foodOffer-header',
-  imports: [DesktopNavigationComponent, HeaderUserActionsComponent, DrawerModule, MobileNavigationComponent , IconsDirective],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  imports: [DesktopNavigationComponent, HeaderUserActionsComponent, DrawerModule, MobileNavigationComponent, IconsDirective],
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
   isShowSearchBox = signal<boolean>(true);

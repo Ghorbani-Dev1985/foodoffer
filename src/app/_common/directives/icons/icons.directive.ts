@@ -38,7 +38,6 @@ export class IconsDirective implements OnInit {
   private renderSvg(): void {
     const content = this.svgContent();
     if (!content) return;
-
     this.renderer.addClass(this.el.nativeElement, 'size-6');
     const sanitizedSvg = this.sanitizer.bypassSecurityTrustHtml(content) as string;
     this.renderer.setProperty(this.el.nativeElement, 'innerHTML', content as string);
