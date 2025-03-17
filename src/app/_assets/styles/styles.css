@@ -38,7 +38,7 @@ input:-webkit-autofill:active {
   }
 
   body {
-    @apply text-base md:text-lg font-primary font-normal text-white bg-primary-darker overflow-hidden;
+    @apply text-base md:text-lg font-primary font-normal text-white bg-primary-darker overflow-x-hidden;
   }
   button{
     cursor: pointer;
