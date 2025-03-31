@@ -2,6 +2,10 @@
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
 @import "tailwindcss-primeui";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
@@ -28,7 +32,45 @@ input:-webkit-autofill:active {
 :root .p-component {
   all: unset;
 }
+/* Swiper Custom Styles */
+swiper-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+}
 
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* RTL support */
+[dir="rtl"] {
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px;
+  }
+
+  .swiper-button-next {
+    left: 10px;
+    right: auto;
+  }
+
+  .swiper-button-prev {
+    right: 10px;
+    left: auto;
+  }
+}
 @layer base {
   * {
     @apply p-0 m-0 box-border;
@@ -78,6 +120,7 @@ input:-webkit-autofill:active {
   --font-body-1: 16px;
   --font-body-2: 14px;
   --font-body-3: 12px;
+  --breakpoint-xs: 320px;
 }
 @layer components {
   .bg-border-gradient{

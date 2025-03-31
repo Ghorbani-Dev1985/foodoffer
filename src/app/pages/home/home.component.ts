@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { SliderComponent } from "../../_common/components/slider/slider.component";
+
+
 import { FoodCategoriesComponent } from "./food-categories/food-categories.component";
+import { FoodOffersComponent } from './food-offers/food-offers.component';
+import { SliderComponent } from "@components/slider/slider.component";
 
 @Component({
   selector: 'foodOffer-home',
-  imports: [SliderComponent, FoodCategoriesComponent],
+  imports: [FoodCategoriesComponent, FoodOffersComponent, SliderComponent],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {

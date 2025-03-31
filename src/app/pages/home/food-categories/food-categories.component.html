@@ -2,20 +2,13 @@
   چه چیزی میل دارید؟
 </foodOffer-section-title>
 <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-6 md:gap-x-14 md:gap-y-10">
-  <div class="relative w-full mx-auto">
-    <img src="/images/category/category.svg" alt="" class="mx-auto" />
-    <img src="/images/category/01-burger.webp" alt="" class="rounded-full absolute w-24 md:w-44 xl:w-auto mx-auto top-4 left-0 right-0 hover:rotate-12 hover:scale-95 border-2 border-secondary-normal border-dashed transition-all ease-linear duration-500" />
-    <p class="absolute bottom-14 left-0 right-0 mx-auto text-center font-body-2 md:font-heading-1 font-bold text-secondary-normal">برگر</p>
-  </div>
-  <div>
-    <img src="/images/category/category.svg" alt="">
-  </div>
-  <div>
-    <img src="/images/category/category.svg" alt="">
-  </div>
-  <div>
-    <img src="/images/category/category.svg" alt="">
-  </div>
+  @for (categoryItem of categoryItems() ; track categoryItem.id) {
+ <a [routerLink]="categoryItem.href" class="relative w-full mx-auto">
+    <img src="/images/category/category.svg" alt="" class="mx-auto  md:w-full" />
+    <img [src]="categoryItem.image" alt="" class="rounded-full absolute xs:w-20 w-36 md:w-44 lg:w-40 xl:w-auto mx-auto top-4 left-0 right-0 hover:rotate-12 hover:scale-95 border-2 border-secondary-normal transition-all ease-linear duration-500" />
+    <p class="absolute bottom-10 md:bottom-14 2xl:bottom-24 left-0 right-0 mx-auto text-center text-xs md:font-heading-1 xl:text-xl font-bold text-secondary-normal">{{categoryItem.title}}</p>
+  </a>
+  }
 </section>
 
 

@@ -3,9 +3,9 @@
     <span foodOfferIcons="prevArrow"></span>
   </button>
   <img
-    [src]="images()[currentIndex()]"
-    [alt]="'Slide ' + (currentIndex() + 1)"
-    [class.fade]="isFading()"
+    [src]="images()[sliderService.currentIndex()]"
+    [alt]="'Slide ' + (sliderService.currentIndex() + 1)"
+    [class.fade]="sliderService.isFading()"
   />
   <p
     class="font-body-2 md:font-display-1 font-bold text-secondary-50 absolute w-60 md:w-full leading-11 text-center"
@@ -19,7 +19,7 @@
   <div class="indicators">
     <span
       *ngFor="let image of images(); let i = index"
-      [class.active]="i === currentIndex()"
+      [class.active]="i === sliderService.currentIndex()"
       (click)="goToSlide(i)"
     >
     </span>

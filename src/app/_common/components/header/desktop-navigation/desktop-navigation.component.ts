@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { RestaurantMenuItems } from '@constants/RestaurantMenuItems';
 import { IRestaurantMenuItems } from '@models/restaurantMenuItems.model';
 import { SearchComponent } from '../search/search.component';

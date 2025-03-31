@@ -9,7 +9,7 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
 export const foodOfferConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true },), provideRouter(routes), provideAnimationsAsync(), provideHttpClient(withFetch()), providePrimeNG({
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideAnimationsAsync(), provideHttpClient(withFetch()), providePrimeNG({
     theme: {
         preset: Aura
     }

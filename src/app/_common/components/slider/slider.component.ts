@@ -2,6 +2,7 @@ import { Component, inject, OnDestroy, OnInit, PLATFORM_ID, signal} from '@angul
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 import { IconsDirective } from '@directives/icons/icons.directive';
+import { SliderService } from '@services/slider/slider.service';
 
 
 @Component({
@@ -9,13 +10,12 @@ import { IconsDirective } from '@directives/icons/icons.directive';
   imports: [CommonModule, IconsDirective ],
   standalone: true,
   templateUrl: './slider.component.html',
-  styleUrl: './slider.component.css'
+  styleUrl: './slider.component.css',
+  providers: [SliderService],
 })
 export class SliderComponent implements OnInit , OnDestroy{
-   currentIndex = signal<number>(0)
-   isFading = signal<boolean>(false)
-   private intervalId: any = null
-   private platformId = inject(PLATFORM_ID)
+  sliderService = inject(SliderService);
+
   images = signal<string[]>([
     '/images/sliders/slide1.webp',
     '/images/sliders/slide2.webp',
@@ -28,58 +28,24 @@ export class SliderComponent implements OnInit , OnDestroy{
 
   }
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.startAutoSlide();
-    }
+    this.sliderService.startAutoSlide(this.images().length);
   }
 
   ngOnDestroy() {
-    this.stopAutoSlide();
+    this.sliderService.stopAutoSlide();
   }
 
-  startAutoSlide() {
-    if (!this.intervalId) {
-      this.intervalId = setInterval(() => {
-        this.nextSlide();
-      }, 4000);
-    }
+  prevSlide(): void {
+    this.sliderService.prevSlide(this.images().length);
+
   }
 
-  stopAutoSlide() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
-    }
-  }
+  nextSlide(): void {
+    this.sliderService.nextSlide(this.images().length);
 
-  resetAutoSlide() {
-    this.stopAutoSlide();
-    this.startAutoSlide();
   }
-
-  changeSlide(newIndex: number) {
-    this.isFading.set(true);
-    setTimeout(() => {
-      this.currentIndex.set(newIndex);
-      this.isFading.set(false);
-    }, 500);
-  }
-
-  prevSlide() {
-    const newIndex = (this.currentIndex() - 1 + this.images().length) % this.images().length;
-    this.changeSlide(newIndex);
-    this.resetAutoSlide();
-  }
-
-  nextSlide() {
-    const newIndex = (this.currentIndex() + 1) % this.images().length;
-    this.changeSlide(newIndex);
-    this.resetAutoSlide();
-  }
-
-  goToSlide(index: number) {
-    this.changeSlide(index);
-    this.resetAutoSlide();
+  goToSlide(index: number): void {
+    this.sliderService.goToSlide(this.images().length , index);
   }
 
 }
