@@ -1,0 +1,26 @@
+<header class="flex-center fixed top-0 left-0 right-0 z-20 h-16 md:h-[132px] rounded-b-2xl shadow-[inset_0px_167px_4px_0px_#FFFFFF29]">
+  <section class="container flex-between xl:gap-x-[100px]">
+    <div class="flex justify-around items-center gap-x-2 text-secondary-50 fill-secondary-50 lg:hidden">
+      <span (click)="isShowMobileNav = true" foodOfferIcons="bars"></span>
+      <span (click)="onSearchTriggered()" foodOfferIcons="search"></span>
+      </div>
+      <p-drawer #mobileNavRef [(visible)]="isShowMobileNav" position="right" [transitionOptions]="'400ms ease-in-out'" styleClass="bg-primary-dark! border-primary-dark! overflow-y-auto overflow-x-hidden py-6 px-4">
+        <ng-template #headless>
+          <div class="w-full flex-between mb-6">
+           <span class="font-heading-2 font-bold">فود آفر</span>
+           <p (click)="onCloseMobileNav($event)">
+            <img src="/images/icon/closeCircle.webp" width="32" height="32" alt="close"/>
+           </p>
+          </div>
+          <foodOffer-mobile-navigation />
+          </ng-template>
+          </p-drawer>
+          @if(isShowSearchBox()){
+         <!-- Logo -->
+           <div class="flex-center flex-1 lg:flex-none"><img src="/images/logo/logo.webp" width="84" height="84" class="size-16 md:size-[84px]" ></div>
+          }
+     <foodOffer-desktop-navigation [isShowSearchBox]="isShowSearchBox()"/>
+     <foodOffer-header-user-actions (searchTriggered)="onSearchTriggered()"/>
+    </section>
+  </header>
+

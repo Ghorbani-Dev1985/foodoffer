@@ -1,0 +1,29 @@
+  <foodOffer-section-title>
+    پیشنهاد ویژه
+  </foodOffer-section-title>
+
+  <swiper-container
+    class="mySwiper"
+    [slidesPerView]="swiperConfig.slidesPerView"
+    [spaceBetween]="swiperConfig.spaceBetween"
+    [pagination]="swiperConfig.pagination"
+    [navigation]="swiperConfig.navigation"
+    autoplay-delay="4000"
+    [loop]="swiperConfig.loop"
+    [breakpoints]="swiperConfig.breakpoints"
+  >
+    @for (offer of offers(); track offer.id) {
+    <swiper-slide>
+      <div class="offer-card">
+        <div class="offer-image">
+          <img [src]="offer.image" [alt]="offer.title" />
+        </div>
+        <div class="offer-content">
+          <h3>{{ offer.title }}</h3>
+          <p>{{ offer.description }}</p>
+          <button class="order-button">سفارش</button>
+        </div>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>

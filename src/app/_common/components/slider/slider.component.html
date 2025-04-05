@@ -1,0 +1,27 @@
+<div class="slider xs:aspect-[2/1] md:aspect-auto mb-16 md:mb-[88px]">
+  <button (click)="prevSlide()" class="right-2.5">
+    <span foodOfferIcons="prevArrow"></span>
+  </button>
+  <img
+    [src]="images()[sliderService.currentIndex()]"
+    [alt]="'Slide ' + (sliderService.currentIndex() + 1)"
+    [class.fade]="sliderService.isFading()"
+  />
+  <p
+    class="font-body-2 md:font-display-1 font-bold text-secondary-50 absolute w-60 md:w-full leading-11 text-center"
+  >
+    <ng-content />
+  </p>
+  <button (click)="nextSlide()" class="left-2.5">
+    <span foodOfferIcons="nextArrow"></span>
+  </button>
+  <!-- Bullet Indicators -->
+  <div class="indicators">
+    <span
+      *ngFor="let image of images(); let i = index"
+      [class.active]="i === sliderService.currentIndex()"
+      (click)="goToSlide(i)"
+    >
+    </span>
+  </div>
+</div>
